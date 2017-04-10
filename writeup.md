@@ -14,15 +14,14 @@
 
 My project includes the following files:
 * `model.py` contains the code for building the keras model based on the [Nvidia architecture](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/). 
-* `Nvidia-recoverydata-dp.h5` is the trained keras model needed to run the vehicle autonomously.
+* `model.h5` is the trained keras model needed to run the vehicle autonomously.
 * `drive.py` is used to drive the vehicle autonomously in the simulator. It accepts an h5 file as a parameter.
 * `video.mp4` is the video produced from the vehicle's camera view during the autonomous run.
-* `video_rear.mp4` is the video of the same run looking at the vehicle from behind.
 
 #### 2. How to run the model in autonomous mode
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py Nvidia-recoverydata-dp.h5
+python drive.py model.h5
 ```
 
 #### 3. Model Pipeline
@@ -59,7 +58,7 @@ To further improve the driving behavior, I decided to add more training data.
 
 #### 3. Additional Data
 
-As the vehicle struggled in corners, I added short segements of driving data making smooth turns, increasing the datast to 13,875 (4625 x 3) images.  I also added horizontally flipped images and opposite steering angles as the vehicle runs counterclockwise in the training track, which can cause left turn bias. The addition of data did the magic and made the vehicle take smooth turns around the corners.
+As the vehicle struggled in corners, I added short segments of driving data making smooth turns, increasing the dataset to 17,949 (5,983 x 3) images.  I also added horizontally flipped images and opposite steering angles as the vehicle runs counterclockwise in the training track, which can cause left turn bias. The addition of data did the magic and made the vehicle take smooth turns around the corners.
 
 #### 4. Final Model Architecture
 
